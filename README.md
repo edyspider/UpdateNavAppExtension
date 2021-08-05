@@ -27,6 +27,7 @@ Edit the parameters of the function ``Update-NavApp`` (last line) in the `Update
 
 * Others Paramenters
 ```powershell
+-SyncMode               # NavApp Synchronize Mode
 -UnpublishOldVersion    # Unpublish old versions
 ```
 
