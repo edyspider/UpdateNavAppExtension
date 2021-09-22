@@ -1,6 +1,5 @@
 # UpdateNavAppExtension
-Safetly Install or Upgrade NavApp Extension
-
+Safetly Install and/or Upgrade NavApp Extension
 
 ### Prerequisites
 * Powershell >= 2.0
@@ -12,23 +11,37 @@ This script uses the NAV Service CmdLets to execute the NavApp commands
 
 ---
 
-## Configuration
-Edit the parameters of the function ``Update-NavApp`` (last line) in the `Update-NavApp.ps1` file.
+## Script Validations
+This script execute different tasks taking into consideration the following scenarios:
+* If a newer version of the NavApp already exist
+* If an equal version of the NavApp exist
+* If older versions og the NavApp exists
+* If has dependencies
 
+---
+
+## Example
+```powershell
+$navAppPath = 'C:\..\EdySpider_UpdateNavApp_1.0.0.0.app'
+$navAppDeps = 'C:\..\Dependencies'
+Update-NavApp -NavAppPath $navAppPath -NavService BC170 -NavVersion BC170 -SyncMode ForceSync -UnpublishOldVersion -NavAppDependenciesDir $navAppDeps.
+```
+Check the commented code at the end of the script
 ---
 
 ## Parameters
 * Mandatory:
 ```powershell
--NavAppPath             # NavApp full file path
--NavService             # NAV Server Instance
 -NavVersion             # NAV Version (NAV2018, BC130, BC140, BC150, BC160, BC170, BC180)
+-NavService             # NAV Server Instance
+-NavAppPath             # NavApp full file path
 ```
 
 * Others Paramenters
 ```powershell
 -SyncMode               # NavApp Synchronize Mode
 -UnpublishOldVersion    # Unpublish old versions
+-NavAppDependenciesDir  # NavApp depencencies extensions directory (e.g.: Customer extension customizations)
 ```
 
 ---
