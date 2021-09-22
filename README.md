@@ -41,7 +41,7 @@ Check the commented code at the end of the script
 ```powershell
 -SyncMode               # NavApp Synchronize Mode
 -UnpublishOldVersion    # Unpublish old versions
--NavAppDependenciesDir  # NavApp depencencies extensions (e.g.: Customer extension customizations)
+-NavAppDependenciesDir  # NavApp depencencies extensions directory (e.g.: Customer extension customizations)
 ```
 
 ---
