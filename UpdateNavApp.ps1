@@ -144,7 +144,7 @@ function Update-NavApp () {
                 Write-Host $DepAppName " unpublished!" -ForegroundColor White
             }
         
-            $OldVersions = Get-NAVAppInfo BC170 -Name $appName | Sort-Object -Property Version
+            $OldVersions = Get-NAVAppInfo $NavService -Name $appName | Sort-Object -Property Version
             $OldVersions | ForEach-Object  {
                 $existAppName = $_.Name
                 $exAppVersion = $_.Version.ToString()
@@ -208,7 +208,7 @@ function Update-NavApp () {
 
             # Unpublish NavApp
             if($UnpublishOldVersion) {
-                $OldVersions = Get-NAVAppInfo BC170 -Name $appName | Sort-Object -Property Version
+                $OldVersions = Get-NAVAppInfo $NavService -Name $appName | Sort-Object -Property Version
                 $OldVersions | ForEach-Object  {
 
                     $existAppName = $_.Name
