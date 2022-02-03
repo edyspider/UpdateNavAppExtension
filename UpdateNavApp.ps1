@@ -12,6 +12,7 @@
  ** 02   05/08/2021  ENS        Add Synchronize Mode as Param
  ** 03   21/09/2021  ENS        Remove Multiple Old Versions
  ** 04   21/09/2021  ENS        Republish NavApp Dependencies
+ ** 05   03/02/2022  ENS        Include BC 19.0 version
 ============================================================ #>
 
 Write-Host "Welcome to the UpdateNavApp Script by EdySpider" -ForegroundColor Green
@@ -21,7 +22,7 @@ Write-Host ' '
 function Update-NavApp () {
     param(
         [parameter(Mandatory=$true)]
-        [ValidateSet("NAV2018","BC130","BC140","BC150","BC160","BC170","BC180")]
+        [ValidateSet("NAV2018","BC130","BC140","BC150","BC160","BC170","BC180", "BC190")]
         [string]$NavVersion,
 
         [parameter(Mandatory=$true)]
@@ -78,6 +79,10 @@ function Update-NavApp () {
             BC180 {
                 Import-Module 'C:\Program Files\Microsoft Dynamics 365 Business Central\180\Service\NavAdminTool.ps1' -InformationAction SilentlyContinue -WarningAction SilentlyContinue | Out-Null
                 Write-Host  "Load DynBC 365 18.0 Module" -ForegroundColor White
+            }
+            BC190 {
+                Import-Module 'C:\Program Files\Microsoft Dynamics 365 Business Central\190\Service\NavAdminTool.ps1' -InformationAction SilentlyContinue -WarningAction SilentlyContinue | Out-Null
+                Write-Host  "Load DynBC 365 19.0 Module" -ForegroundColor White
             } else {
                 throw 'NavVersion parameter is not valid for Update-NavApp'
             }
