@@ -13,6 +13,7 @@
  ** 03   21/09/2021  ENS        Remove Multiple Old Versions
  ** 04   21/09/2021  ENS        Republish NavApp Dependencies
  ** 05   03/02/2022  ENS        Include BC 19.0 version
+ ** 06   24/01/2023  ENS        Include BC 20.0 and 21.0 version
 ============================================================ #>
 
 Write-Host "Welcome to the UpdateNavApp Script by EdySpider" -ForegroundColor Green
@@ -22,7 +23,7 @@ Write-Host ' '
 function Update-NavApp () {
     param(
         [parameter(Mandatory=$true)]
-        [ValidateSet("NAV2018","BC130","BC140","BC150","BC160","BC170","BC180", "BC190")]
+        [ValidateSet("NAV2018","BC130","BC140","BC150","BC160","BC170","BC180", "BC190", "BC200", "B210")]
         [string]$NavVersion,
 
         [parameter(Mandatory=$true)]
@@ -83,6 +84,14 @@ function Update-NavApp () {
             BC190 {
                 Import-Module 'C:\Program Files\Microsoft Dynamics 365 Business Central\190\Service\NavAdminTool.ps1' -InformationAction SilentlyContinue -WarningAction SilentlyContinue | Out-Null
                 Write-Host  "Load DynBC 365 19.0 Module" -ForegroundColor White
+            }
+            BC200 {
+                Import-Module 'C:\Program Files\Microsoft Dynamics 365 Business Central\200\Service\NavAdminTool.ps1' -InformationAction SilentlyContinue -WarningAction SilentlyContinue | Out-Null
+                Write-Host  "Load DynBC 365 20.0 Module" -ForegroundColor White
+            }
+            BC210 {
+                Import-Module 'C:\Program Files\Microsoft Dynamics 365 Business Central\210\Service\NavAdminTool.ps1' -InformationAction SilentlyContinue -WarningAction SilentlyContinue | Out-Null
+                Write-Host  "Load DynBC 365 21.0 Module" -ForegroundColor White
             } else {
                 throw 'NavVersion parameter is not valid for Update-NavApp'
             }
@@ -367,4 +376,4 @@ function Show-ProgressBar{
 # Call Update-NavApp Script
 #$navAppPath = 'C:\..\EdySpider_UpdateNavApp_1.0.0.0.app'
 #$navAppDeps = 'C:\..\Dependencies'
-#Update-NavApp -NavAppPath $navAppPath -NavService BC170 -NavVersion BC170 -SyncMode ForceSync -UnpublishOldVersion -NavAppDependenciesDir $navAppDeps
+#Update-NavApp -NavAppPath $navAppPath -NavService BC210 -NavVersion BC210 -SyncMode ForceSync -UnpublishOldVersion -NavAppDependenciesDir $navAppDeps
