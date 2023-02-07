@@ -22,9 +22,9 @@ This script execute different tasks taking into consideration the following scen
 
 ## Example
 ```powershell
-$navAppPath = 'C:\..\EdySpider_UpdateNavApp_1.0.0.0.app'
+$navAppPath = 'C:\..\EdySpider_UpdateNavApp_21.0.0.0.app'
 $navAppDeps = 'C:\..\Dependencies'
-Update-NavApp -NavAppPath $navAppPath -NavService BC170 -NavVersion BC170 -SyncMode ForceSync -UnpublishOldVersion -NavAppDependenciesDir $navAppDeps.
+Update-NavApp -NavAppPath $navAppPath -NavService BC210 -NavVersion BC210 -SyncMode ForceSync -UnpublishOldVersion -NavAppDependenciesDir $navAppDeps.
 ```
 Check the commented code at the end of the script
 ---
@@ -32,7 +32,7 @@ Check the commented code at the end of the script
 ## Parameters
 * Mandatory:
 ```powershell
--NavVersion             # NAV Version (NAV2018, BC130, BC140, BC150, BC160, BC170, BC180)
+-NavVersion             # NAV Version (NAV2018, BC130, BC140, BC150, BC160, BC170, BC180, BC190, BC200, BC210)
 -NavService             # NAV Server Instance
 -NavAppPath             # NavApp full file path
 ```
