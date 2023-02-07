@@ -23,7 +23,7 @@ Write-Host ' '
 function Update-NavApp () {
     param(
         [parameter(Mandatory=$true)]
-        [ValidateSet("NAV2018","BC130","BC140","BC150","BC160","BC170","BC180", "BC190", "BC200", "B210")]
+        [ValidateSet("NAV2018","BC130","BC140","BC150","BC160","BC170","BC180", "BC190", "BC200", "BC210")]
         [string]$NavVersion,
 
         [parameter(Mandatory=$true)]
